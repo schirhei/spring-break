@@ -1,25 +1,41 @@
-from kivy.uix.label import Label
-from kivy.app import App
-import kivy
-kivy.require('1.0.6')  # replace with your current kivy version !
+from environment import Env
+from env_castle import Castle
+import requests
+import json
+import pytz
+import datetime
 
+def main():
+    print("jaja")
+    vancouver = Castle('Vancouver')
+    print(vancouver.getWeather())
+    print(vancouver.getSunset())
+    print(vancouver.getSunrise())
 
-# (see :attr:`~App.get_application_config` for its location) main.ini for config variables
-
-class MyApp(App):
-    def build_config(self, config):
-            config.setdefaults('section1', {
-                'key1': 'value1',
-                'key2': '42'
-            })
-
-    def build(self):
-        self.title = 'Spring Break'
-        config = self.config
-        return Label(text='key1 is %s and key2 is %d' % (
-            config.get('section1', 'key1'),
-            config.getint('section1', 'key2')))
-
+    #long_url = "http://%s%s,%s&appid=%s" % (Castle.URL, Castle.CITY, Castle.COUNTRY, Castle.API_KEY)
+    #print(long_url)
+    #get_req = request.GET(long_url)
+    #print(get_req.coord.long)
+    #get_req = urllib.request.urlopen(long_url).read()
+    #print(get_req.coord.long)
+    #resp, content = httplib2.Http().request(long_url)
+    #print(resp)
+    #api = requests.get(long_url)
+    #api =api.json()
+    #settime = api["sys"]["sunset"]
+    #risetime = api["sys"]["sunrise"]
+    #print(api["sys"]["sunset"])
+    #print(api["sys"]["sunrise"])
+    #tz = pytz.timezone('Japan')
+    #ct = datetime.datetime.now(tz=tz)
+    #print(ct)
+    #Converting to epoch
+    #ct = ct.timestamp()
+    #print(ct)
+    #if (ct >  risetime and ct < settime):
+    #    print("bright")
+    #else:
+    #    print ("dark")
 
 if __name__ == '__main__':
-    MyApp().run()
+    main()
