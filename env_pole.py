@@ -5,8 +5,8 @@ import requests
 
 class Pole(Env):
 
-    def __init__(self):
-        super().__init__(self.long_url)
+    def __init__(self, city, country, timezone):
+        super().__init__(city, country, timezone)
 
     city= "North Pole"
     country = "US"
